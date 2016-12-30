@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+def VUFORIA_SDK_DIR = 'C:/Users/Lenovo/AppData/Local/Android/Vuforia'
+def NATIVE_LIB_DIR = 'build/lib'
+def JAR_DIR = 'build/java/vuforia'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/$NATIVE_LIB_DIR/"
+    }
+
+    defaultConfig {
+        applicationId "app.ar.vr.com.myarvrapp"
+        minSdkVersion 17
+        targetSdkVersion 24
+        versionCode 600
+        versionName "6.0"
+    }
+
+    archivesBaseName = rootProject.projectDir.getName()
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+        }
+    }
+}
+
+dependencies {
+    compile files("$VUFORIA_SDK_DIR/$JAR_DIR/Vuforia.jar")
+
+    //Android support libraries
+    compile 'com.android.support:appcompat-v7:24.2.1'
+
+    //GSON
+    compile 'com.google.code.gson:gson:2.2.4'
+}
