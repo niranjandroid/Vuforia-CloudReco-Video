@@ -1,4 +1,4 @@
-package app.ar.vr.com.myarvrapp.CloudRecognition;
+package app.ar.vr.com.myarvrapp;
 
 /**
  * Created by Lenovo on 12/30/2016.

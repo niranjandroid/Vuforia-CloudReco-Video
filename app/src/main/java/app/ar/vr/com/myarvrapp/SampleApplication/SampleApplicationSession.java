@@ -34,7 +34,7 @@ import com.vuforia.VideoMode;
 import com.vuforia.Vuforia;
 import com.vuforia.Vuforia.UpdateCallbackInterface;
 
-import app.ar.vr.com.myarvrapp.CloudRecognition.Constants;
+import app.ar.vr.com.myarvrapp.Constants;
 import app.ar.vr.com.myarvrapp.R;
 
 
