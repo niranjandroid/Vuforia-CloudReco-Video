@@ -17,3 +17,4 @@ This project allows you to detect predefined images and play video based on the 
   * EX : {"url" : "https://test.com/path.mp4", "title" : "VideoTitle"}
   * Note: Video url should consist extension like mp4, thats why current project not supporting youtube videos
 8. Install app and scan the uploaded image, you can see the defined video.
+9. Change VUFORIA_SDK_DIR in build.gradle file to vuforia sdk directory in your machines local vuforia sdk storage
