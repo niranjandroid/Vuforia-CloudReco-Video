@@ -1,2 +1,2 @@
 # Vuforia-CloudReco-Video
-Detect Image and playing video accordingly
+Detect Image and play video accordingly
