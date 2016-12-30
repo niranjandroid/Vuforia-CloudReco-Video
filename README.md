@@ -14,6 +14,6 @@ This project allows you to detect predefined images and play video based on the 
 6. Upload an image in "Target Image File" option.
 7. Upload a text file in "Metadata Package:(Optional)"
   * In text file, content should be a json data. You can give your video url and title of the image/video as well.
-  * EX : {"url" : "https://test.com/path.mp4","title" : "VideoTitle"}
+  * EX : {"url" : "https://test.com/path.mp4", "title" : "VideoTitle"}
   * Note: Video url should consist extension like mp4, thats why current project not supporting youtube videos
 8. Install app and scan the uploaded image, you can see the defined video.
