@@ -115,6 +115,7 @@ public class VideoPlayRenderer implements GLSurfaceView.Renderer, SampleAppRende
     float videoQuadAspectRatio;
     float keyframeQuadAspectRatio;
 
+    private boolean isCenter = false;
 
     public VideoPlayRenderer(CloudReco activity,
                              SampleApplicationSession session) {
@@ -273,20 +274,23 @@ public class VideoPlayRenderer implements GLSurfaceView.Renderer, SampleAppRende
             if (mLostTrackingSince < 0)
                 mLostTrackingSince = SystemClock.uptimeMillis();
             else {
-                // If it's been more than 2 seconds then pause the player
+                // If it's been more than 5 seconds then pause the player
                 if ((SystemClock.uptimeMillis() - mLostTrackingSince) > 5000) {
                     if (mVideoPlayerHelper != null) {
-                        mVideoPlayerHelper.play(false, 0);
-
-                        Log.d("16245789", "start scanline ");
+                        isCenter = true;
+                        mSampleAppRenderer.render();
+                       /* mVideoPlayerHelper.stop();
+                        unload();
+                        requestLoad(mMovieName,0, true);
+                        Log.d("16245789", "start scanline ");*/
                         mActivity.scanlineStart();
                     }
-                } else {
+                }/* else {
                     try {
                         Log.d("16245789", "stop scanline ");
                         mActivity.scanlineStop();
                     } catch (Exception ex) {}
-                }
+                }*/
             }
         }
         // If you would like the video to start playing as soon as it starts

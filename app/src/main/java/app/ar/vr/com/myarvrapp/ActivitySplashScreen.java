@@ -49,23 +49,23 @@ public class ActivitySplashScreen extends Activity
         
         addContentView(layout, new LayoutParams(LayoutParams.MATCH_PARENT,
             LayoutParams.MATCH_PARENT));
-        
-        checkPermissions();
+
+        startFlow();
     }
 
     private void checkPermissions() {
-        Log.d("NIRANJAN",(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
-                + " "+ (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED));
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
                 && (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
-            openActivityLauncher();
+            Intent intent = new Intent(ActivitySplashScreen.this,
+                    CloudReco.class);
+            startActivity(intent);
         } else {
             requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE});
         }
 
     }
 
-    private void openActivityLauncher() {
+    private void startFlow() {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable()
         {
@@ -73,11 +73,7 @@ public class ActivitySplashScreen extends Activity
             @Override
             public void run()
             {
-
-                Intent intent = new Intent(ActivitySplashScreen.this,
-                        CloudReco.class);
-                startActivity(intent);
-
+                checkPermissions();
             }
 
         }, SPLASH_MILLIS);
@@ -100,7 +96,7 @@ public class ActivitySplashScreen extends Activity
                 if(showRationale) {
                     requestPermissions(new String[] {permissions[i]});
                 } else {
-                    Toast.makeText(this, "Please grant permssion for CAMERA and EXTERNAL STORAGE by going to app settings",
+                    Toast.makeText(this, "Please grant permission for CAMERA and EXTERNAL STORAGE by going to app settings",
                             Toast.LENGTH_LONG).show();
                 }
             }
